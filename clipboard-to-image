@@ -1,8 +1,43 @@
 from PIL import ImageGrab
 import time
+# rename
+import os
+from datetime import datetime
+import time
 
-date_string = time.strftime("%Y-%m-%d-%H:%M")
+
+def rename_file_with_date(old_filename):
+    """Renames a file with the current date appended to its name.
+
+    Args:
+      old_filename: The path to the file to be renamed.
+
+    Returns:
+      The new filename with the date appended.
+    """
+
+    # Get the current date in the desired format
+    date_str = datetime.now().strftime("%Y-%m-%d-%H%M%S")  # YYYY-MM-DD format
+
+    # Get the filename and extension
+    filename, extension = os.path.splitext(old_filename)
+
+    # Create the new filename with date appended
+    new_filename = f"{filename}_{date_str}{extension}"
+
+    # Rename the file using os.rename
+    os.rename(old_filename, new_filename)
+
+    return new_filename
+
 
 im = ImageGrab.grabclipboard()
-im.save(r'C:\downloads\#\#tex' + date_string + '.png'
-        timestamp=3, boldfont=1, textpos='bc', )
+im.save('C:\downloads\#\#tex.png', 'PNG')
+
+
+# time.sleep(2.5)
+# Example usage
+old_file = "C:\downloads\#\#tex.png"
+new_file = rename_file_with_date(old_file)
+print(f"Old filename: {old_file}")
+print(f"New filename: {new_file}")
