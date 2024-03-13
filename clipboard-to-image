@@ -1,0 +1,6 @@
+from PIL import ImageGrab
+import time
+date_string = time.strftime("%Y-%m-%d-%H:%M")
+
+im = ImageGrab.grabclipboard()
+im.save('C:\downloads\#\#tex.png', 'PNG')
