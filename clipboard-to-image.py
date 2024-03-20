@@ -41,3 +41,5 @@ old_file = "C:\downloads\#\#tex.png"
 new_file = rename_file_with_date(old_file)
 print(f"Old filename: {old_file}")
 print(f"New filename: {new_file}")
+
+os.startfile('C:/downloads/#/')
