@@ -5,6 +5,8 @@ import os
 from datetime import datetime
 import time
 
+from win10toast import ToastNotifier
+
 
 def rename_file_with_date(old_filename):
     """Renames a file with the current date appended to its name.
@@ -42,4 +44,13 @@ new_file = rename_file_with_date(old_file)
 print(f"Old filename: {old_file}")
 print(f"New filename: {new_file}")
 
-os.startfile('C:/downloads/#/')
+
+def show_notification(title, message):
+    toaster = ToastNotifier()
+    toaster.show_toast(title, message, duration=10)
+
+
+if __name__ == "__main__":
+    title = "Python Notice"
+    message = "This is a notification from Python."
+    show_notification(title, message)
