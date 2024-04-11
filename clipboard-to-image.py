@@ -51,6 +51,6 @@ def show_notification(title, message):
 
 
 if __name__ == "__main__":
-    title = "Python Notice"
-    message = "This is a notification from Python."
+    title = "Notice"
+    message = "Saved"
     show_notification(title, message)
